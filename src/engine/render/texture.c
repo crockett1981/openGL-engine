@@ -9,7 +9,7 @@ bool load_texture(GLuint *texture, const char *file_name) {
     unsigned char header[8] = { 0 };
 
     unsigned int width, height;
-    unsigned int row_bytes;
+    size_t row_bytes;
 
     png_byte* data = NULL;
     png_bytepp row_pointers = NULL;

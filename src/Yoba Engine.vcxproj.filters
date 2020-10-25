@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{f6f90bd8-acc2-477d-a757-8afdec847f57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{e15dc018-f30b-4b1c-94dd-260558a82a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\events">
+      <UniqueIdentifier>{3dd9f53e-442c-4013-ac7b-9c44a4174297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\events">
+      <UniqueIdentifier>{a598917f-ebd0-44d8-89f6-8caa41e9a6ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\input">
+      <UniqueIdentifier>{dedc6dc4-2f68-4dfc-a803-51661b84eb4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\input">
+      <UniqueIdentifier>{012b6190-e81c-460c-9ec3-f89ca5390dc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\render">
+      <UniqueIdentifier>{1aaa90de-1ef9-4202-beb6-4b4a80d24bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\render">
+      <UniqueIdentifier>{599015d1-f801-4c54-8e69-b23c154206a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\events\close_window.c">
+      <Filter>Source Files\engine\events</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\input\keyboard.c">
+      <Filter>Source Files\engine\input</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\render\shader.c">
+      <Filter>Source Files\engine\render</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\render\texture.c">
+      <Filter>Source Files\engine\render</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\render\window.c">
+      <Filter>Source Files\engine\render</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine\engine.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\engine_common.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\events\close_window.h">
+      <Filter>Header Files\engine\events</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\input\keyboard.h">
+      <Filter>Header Files\engine\input</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\render\shader.h">
+      <Filter>Header Files\engine\render</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\render\texture.h">
+      <Filter>Header Files\engine\render</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\render\window.h">
+      <Filter>Header Files\engine\render</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

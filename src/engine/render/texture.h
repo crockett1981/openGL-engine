@@ -8,7 +8,7 @@
 #include <stdbool.h>
 #include <GL/glew.h>
 #include <SDL.h>
-#include <libpng16/png.h>
+#include <png.h>
 
 bool load_texture(GLuint* texture, const char* file_name);
 
