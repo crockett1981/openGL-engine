@@ -4,9 +4,9 @@
 
 #include "close_window.h"
 
-bool window_close(void) {
+SDL_Event event = { 0 };
 
-    SDL_Event event = { 0 };
+bool window_close(void) {
 
     while(SDL_PollEvent(&event) != 0) {
         switch(event.type) {

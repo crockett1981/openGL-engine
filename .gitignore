@@ -1,7 +1,7 @@
-/cmake-build-debug
 /.vs
-/x64
-/src/x64
-/packages
 /.idea
+/cmake-build-debug
+/packages
 /res/texture/wood.png
+/src/x64
+/x64

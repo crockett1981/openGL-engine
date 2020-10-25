@@ -18,6 +18,9 @@ int main(void) {
     init_camera((vec3){ 0.0f, 0.0f, 3.0f}, (vec3){ 0.0f, 1.0f, 0.0f}, -90.0f, 0.0f);
 
     while(!window_close()) {
+
+        keyboard_handling();
+
         update_screen();
     }
 

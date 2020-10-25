@@ -5,4 +5,10 @@
 #ifndef ENGINE_KEYBOARD_H
 #define ENGINE_KEYBOARD_H
 
+#include <stdbool.h>
+#include <SDL.h>
+#include "../core/camera.h"
+
+void keyboard_handling(void);
+
 #endif //ENGINE_KEYBOARD_H

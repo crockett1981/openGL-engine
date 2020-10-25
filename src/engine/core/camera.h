@@ -25,5 +25,8 @@ struct camera_settings {
 };
 
 void init_camera(vec3 position, vec3 up, float yaw, float pitch);
+void process_keyboard(enum camera_movement direction, float delta_time);
+void process_mouse_movement(float x_offset, float y_offset, bool constrain_pitch);
+void process_mouse_scroll(float y_offset);
 
 #endif //ENGINE_CAMERA_H

@@ -11,6 +11,10 @@
 
 struct camera_settings cameraSettings = { 0 };
 
+float fov_back(void) {
+    return cameraSettings.zoom;
+}
+
 void update_camera_vectors(void) {
     vec3 front = {cosf(glm_rad(cameraSettings.yaw)) * cosf(glm_rad(cameraSettings.pitch)), sinf(glm_rad(cameraSettings.pitch)), sinf(glm_rad(cameraSettings.yaw)) * cosf(glm_rad(cameraSettings.pitch))};
 
@@ -27,6 +31,61 @@ void update_camera_vectors(void) {
     glm_vec3_cross(cameraSettings.right, cameraSettings.front, up_temp);
     glm_vec3_normalize(up_temp);
     glm_vec3_copy(up_temp, cameraSettings.up);
+}
+
+void process_keyboard(enum camera_movement direction, float delta_time) {
+    float velocity = cameraSettings.movement_speed * delta_time;
+    vec3 velocity_vec = {velocity, velocity, velocity};
+    vec3 t;
+
+    switch (direction) {
+
+        case FORWARD:
+            glm_vec3_mulv(cameraSettings.front, velocity_vec, t);
+            glm_vec3_add(cameraSettings.position, t, cameraSettings.position);
+            break;
+        case BACKWARD:
+            glm_vec3_mulv(cameraSettings.front, velocity_vec, t);
+            glm_vec3_sub(cameraSettings.position, t, cameraSettings.position);
+            break;
+        case LEFT:
+            glm_vec3_mulv(cameraSettings.right, velocity_vec, t);
+            glm_vec3_sub(cameraSettings.position, t, cameraSettings.position);
+            break;
+        case RIGHT:
+            glm_vec3_mulv(cameraSettings.right, velocity_vec, t);
+            glm_vec3_add(cameraSettings.position, t, cameraSettings.position);
+            break;
+
+        default:
+            ;
+    }
+}
+
+void process_mouse_movement(float x_offset, float y_offset, bool constrain_pitch) {
+    x_offset *= cameraSettings.sensitivity;
+    y_offset *= cameraSettings.sensitivity;
+
+    cameraSettings.yaw += x_offset;
+    cameraSettings.pitch += y_offset;
+
+    if(constrain_pitch) {
+        if(cameraSettings.pitch > 89.0f)
+            cameraSettings.pitch = 89.0f;
+        if(cameraSettings.pitch < -89.0f)
+            cameraSettings.pitch = -89.0f;
+    }
+
+    update_camera_vectors();
+}
+
+void process_mouse_scroll(float y_offset) {
+    if(cameraSettings.zoom >= 1.0f && cameraSettings.zoom <= 45.0f)
+        cameraSettings.zoom -= y_offset;
+    if(cameraSettings.zoom <= 1.0f)
+        cameraSettings.zoom = 1.0f;
+    if(cameraSettings.zoom >= 45.0f)
+        cameraSettings.zoom = 45.0f;
 }
 
 void init_camera(vec3 position, vec3 up, float yaw, float pitch) {

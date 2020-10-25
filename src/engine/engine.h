@@ -7,8 +7,13 @@
 
 #include "render/shader.h"
 #include "render/texture.h"
-#include "events/close_window.h"
 #include "render/window.h"
+
+#include "events/close_window.h"
+
+#include "input/keyboard.h"
+#include "input/mouse.h"
+
 #include "core/camera.h"
 
 #endif //ENGINE_ENGINE_H

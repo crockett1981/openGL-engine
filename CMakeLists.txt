@@ -10,8 +10,7 @@ set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Wall -Wextra -lm")
 
 add_executable(Engine src/main.c
-        src/engine/engine_common.h
-        src/engine/render/shader.c
+		src/engine/render/shader.c
         src/engine/render/shader.h
         src/engine/engine.h
         src/engine/render/texture.c
@@ -23,7 +22,7 @@ add_executable(Engine src/main.c
 		src/engine/render/window.c
 		src/engine/render/window.h
 		src/engine/core/camera.c
-		src/engine/core/camera.h)
+		src/engine/core/camera.h src/engine/input/mouse.c src/engine/input/mouse.h)
 
 target_link_libraries(Engine ${LIB_LIBRARIES})
 target_include_directories(Engine PUBLIC ${LIB_INCLUDE_DIRS})
