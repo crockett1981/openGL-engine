@@ -22,7 +22,7 @@ add_executable(Engine src/main.c
 		src/engine/render/window.c
 		src/engine/render/window.h
 		src/engine/core/camera.c
-		src/engine/core/camera.h src/engine/input/mouse.c src/engine/input/mouse.h)
+		src/engine/core/camera.h src/engine/input/mouse.c src/engine/input/mouse.h src/engine/meshes/cube.c src/engine/meshes/cube.h)
 
 target_link_libraries(Engine ${LIB_LIBRARIES})
 target_include_directories(Engine PUBLIC ${LIB_INCLUDE_DIRS})

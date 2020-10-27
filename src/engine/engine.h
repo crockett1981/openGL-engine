@@ -16,4 +16,7 @@
 
 #include "core/camera.h"
 
+/* meshes */
+#include "meshes/cube.h"
+
 #endif //ENGINE_ENGINE_H
