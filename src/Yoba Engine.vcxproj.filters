@@ -37,6 +37,18 @@
     <Filter Include="Header Files\engine\render">
       <UniqueIdentifier>{599015d1-f801-4c54-8e69-b23c154206a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine\core">
+      <UniqueIdentifier>{bd7309e5-6bcb-4b2b-a801-07ceb0838290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\core">
+      <UniqueIdentifier>{e9f07169-0267-4f05-8cbd-b9aa8054d342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\meshes">
+      <UniqueIdentifier>{9dc22e67-02a2-4dad-80c1-e2e3d583b402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\meshes">
+      <UniqueIdentifier>{b90760f7-a7d7-4254-ae60-febca1612909}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -57,12 +69,18 @@
     <ClCompile Include="engine\render\window.c">
       <Filter>Source Files\engine\render</Filter>
     </ClCompile>
+    <ClCompile Include="engine\input\mouse.c">
+      <Filter>Source Files\engine\input</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\core\camera.c">
+      <Filter>Source Files\engine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\meshes\cube.c">
+      <Filter>Source Files\engine\meshes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\engine.h">
-      <Filter>Header Files\engine</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\engine_common.h">
       <Filter>Header Files\engine</Filter>
     </ClInclude>
     <ClInclude Include="engine\events\close_window.h">
@@ -79,6 +97,15 @@
     </ClInclude>
     <ClInclude Include="engine\render\window.h">
       <Filter>Header Files\engine\render</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\input\mouse.h">
+      <Filter>Header Files\engine\input</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\core\camera.h">
+      <Filter>Header Files\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\meshes\cube.h">
+      <Filter>Header Files\engine\meshes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

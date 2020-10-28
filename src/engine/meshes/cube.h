@@ -10,16 +10,17 @@
 #include "../render/shader.h"
 #include "../render/texture.h"
 
-typedef struct cube {
-    vec3 position;
+typedef struct cube_struct {
+	vec3 position;
+	vec3 scale;
 
-    const char* texture_path;
-    GLuint* texture;
+	const char* texture_path;
+	GLuint* texture;
 
-    struct shader* shader;
+	GLuint vao;
+	GLuint vbo;
 
-    GLuint vao;
-    GLuint vbo;
+	shader shader;
 } cube_struct;
 
 bool init_cube(cube_struct *cube);

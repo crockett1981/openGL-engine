@@ -131,7 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Holmes\Downloads\glew-2.1.0-win32\glew-2.1.0\include;C:\Users\Holmes\Downloads\SDL2-devel-2.0.12-VC\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Holmes\Downloads\cglm-master\cglm-master\include;C:\Users\Holmes\Downloads\glew-2.1.0-win32\glew-2.1.0\include;C:\Users\Holmes\Downloads\SDL2-devel-2.0.12-VC\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
@@ -139,24 +139,29 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Holmes\Downloads\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;C:\Users\Holmes\Downloads\SDL2-devel-2.0.12-VC\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Holmes\Downloads\cglm-master\cglm-master\win\x64\Release;C:\Users\Holmes\Downloads\glew-2.1.0-win32\glew-2.1.0\lib\Release\x64;C:\Users\Holmes\Downloads\SDL2-devel-2.0.12-VC\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <Version>0.1</Version>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glew32s.lib;opengl32.lib;cglm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine\core\camera.c" />
     <ClCompile Include="engine\events\close_window.c" />
     <ClCompile Include="engine\input\keyboard.c" />
+    <ClCompile Include="engine\input\mouse.c" />
+    <ClCompile Include="engine\meshes\cube.c" />
     <ClCompile Include="engine\render\shader.c" />
     <ClCompile Include="engine\render\texture.c" />
     <ClCompile Include="engine\render\window.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="engine\core\camera.h" />
     <ClInclude Include="engine\engine.h" />
-    <ClInclude Include="engine\engine_common.h" />
     <ClInclude Include="engine\events\close_window.h" />
     <ClInclude Include="engine\input\keyboard.h" />
+    <ClInclude Include="engine\input\mouse.h" />
+    <ClInclude Include="engine\meshes\cube.h" />
     <ClInclude Include="engine\render\shader.h" />
     <ClInclude Include="engine\render\texture.h" />
     <ClInclude Include="engine\render\window.h" />
