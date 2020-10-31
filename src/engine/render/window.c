@@ -15,6 +15,9 @@ bool engine_init(const char* window_name, unsigned short screen_width, unsigned 
     SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+
     mainSystems.window = SDL_CreateWindow(window_name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         screen_width, screen_height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 
@@ -45,6 +48,8 @@ bool engine_init(const char* window_name, unsigned short screen_width, unsigned 
     printf("GLSL version: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
     printf("Vendor: %s\n", glGetString(GL_VENDOR));
     printf("Rendering device: %s\n", glGetString(GL_RENDERER));
+
+    glEnable(GL_DEPTH_TEST);
 
     return true;
 }

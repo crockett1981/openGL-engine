@@ -81,12 +81,12 @@ bool compile_shader(GLuint *shader_program, const GLchar *vertex_path, const GLc
     GLchar* vertex_shader_source = NULL;
     GLchar* fragment_shader_source = NULL;
 
-    if(load_file(vertex_path, &vertex_shader_source) == false) {
+    if(!load_file(vertex_path, &vertex_shader_source)) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load file\n");
         return false;
     }
 
-    if(load_file(fragment_path, &fragment_shader_source) == false) {
+    if(!load_file(fragment_path, &fragment_shader_source)) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load file\n");
         return false;
     }

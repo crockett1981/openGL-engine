@@ -51,19 +51,26 @@ float vertices[] = {
 bool init_cube(cube_struct *cube) {
 
     if(cube->texture_path == NULL) {
-        if(!load_texture(&cube->texture, "texture/simple_texture.png")) {
+        if(!load_texture((GLuint *) &cube->texture, "texture/simple_texture.png")) {
             return false;
         }
         else {
             SDL_Log("File %s loaded\n", cube->texture_path);
         }
     } else {
-        if(!load_texture(&cube->texture, cube->texture_path)) {
+        if(!load_texture((GLuint *) &cube->texture, cube->texture_path)) {
             return false;
         }
         else {
             SDL_Log("File %s loaded\n", cube->texture_path);
         }
+    }
+
+    if(!compile_shader((GLuint *) &cube->shader.shader_program, cube->shader.vertex_path, cube->shader.fragment_path)) {
+        SDL_Log("Error\n");
+        return false;
+    } else {
+        SDL_Log("Shader compiled\n");
     }
 
     glGenVertexArrays(1, &cube->vao);
