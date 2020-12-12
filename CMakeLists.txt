@@ -26,7 +26,9 @@ add_executable(Engine src/main.c
 		src/engine/input/mouse.c
 		src/engine/input/mouse.h
 		src/engine/meshes/cube.c
-		src/engine/meshes/cube.h)
+		src/engine/meshes/cube.h
+		src/model/obj.c
+		src/model/model.h src/game.c src/game.h)
 
 target_link_libraries(Engine ${LIB_LIBRARIES})
 target_include_directories(Engine PUBLIC ${LIB_INCLUDE_DIRS})

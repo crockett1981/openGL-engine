@@ -73,7 +73,7 @@ static void error_handler(GLuint object, enum shader_type shaderType) {
     }
 }
 
-bool compile_shader(GLuint *shader_program, const GLchar *vertex_path, const GLchar *fragment_path) {
+GLuint load_shader(const GLchar *vertex_path, const GLchar *fragment_path) {
 
     GLuint vertex_shader;
     GLuint fragment_shader;

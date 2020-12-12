@@ -1,13 +1,13 @@
 #include "window.h"
 
-struct main_systems mainSystems = { 0 };
+SDL_Window* window = NULL;
+SDL_GLContext glContext = NULL;
 
-bool engine_init(const char* window_name, unsigned short screen_width, unsigned short screen_height) {
+int engine_init(const char* window_name, unsigned short screen_width, unsigned short screen_height) {
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         SDL_Log("Failed to initialize SDL: %s\n", SDL_GetError());
-
-        return false;
+        return -1;
     }
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -18,28 +18,23 @@ bool engine_init(const char* window_name, unsigned short screen_width, unsigned 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
-    mainSystems.window = SDL_CreateWindow(window_name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        screen_width, screen_height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
-
-    if (mainSystems.window == NULL) {
+    window = SDL_CreateWindow(window_name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screen_width, screen_height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+    if (window == NULL) {
         SDL_Log("Failed to create window: %s\n", SDL_GetError());
-
-        return false;
+        return -1;
     }
 
-    mainSystems.glContext = SDL_GL_CreateContext(mainSystems.window);
-    if (mainSystems.glContext == NULL) {
+    glContext = SDL_GL_CreateContext(window);
+    if (glContext == NULL) {
         SDL_Log("Failed to create OpenGL context: %s\n", SDL_GetError());
-
-        return false;
+        return -1;
     }
 
     glewExperimental = GL_TRUE;
     GLenum error = glewInit();
     if (GLEW_OK != error) {
         SDL_Log("Failed to initialize GLEW: %s\n", glewGetErrorString(error));
-
-        return false;
+        return -1;
     }
 
     SDL_Log("Using GLEW %s\n", glewGetString(GLEW_VERSION));
@@ -49,20 +44,18 @@ bool engine_init(const char* window_name, unsigned short screen_width, unsigned 
     printf("Vendor: %s\n", glGetString(GL_VENDOR));
     printf("Rendering device: %s\n", glGetString(GL_RENDERER));
 
+    glViewport(0, 0, screen_width, screen_height);
     glEnable(GL_DEPTH_TEST);
 
-    return true;
+    return 0;
 }
 
 void update_screen(void) {
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    SDL_GL_SwapWindow(mainSystems.window);
+    SDL_GL_SwapWindow(window);
 }
 
 void destroy_engine(void) {
-    SDL_GL_DeleteContext(mainSystems.glContext);
-    SDL_DestroyWindow(mainSystems.window);
+    SDL_GL_DeleteContext(glContext);
+    SDL_DestroyWindow(window);
     SDL_Quit();
 }

@@ -14,12 +14,6 @@ enum shader_type {
     VERTEX, FRAGMENT, PROGRAM
 };
 
-typedef struct shader {
-    GLuint* shader_program;
-    const GLchar* vertex_path;
-    const GLchar* fragment_path;
-} shader;
-
-bool compile_shader(GLuint* shader_program, const GLchar* vertex_path, const GLchar* fragment_path);
+GLuint load_shader(const GLchar *vertex_path, const GLchar *fragment_path);
 
 #endif //ENGINE_SHADER_H
