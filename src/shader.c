@@ -75,6 +75,8 @@ static void error_handler(GLuint object, enum shader_type shaderType) {
 
 GLuint load_shader(const GLchar *vertex_path, const GLchar *fragment_path) {
 
+    GLuint shader_program;
+
     GLuint vertex_shader;
     GLuint fragment_shader;
 
@@ -101,15 +103,15 @@ GLuint load_shader(const GLchar *vertex_path, const GLchar *fragment_path) {
     glCompileShader(fragment_shader);
     error_handler(fragment_shader, FRAGMENT);
 
-    *shader_program = glCreateProgram();
+    shader_program = glCreateProgram();
 
-    glAttachShader(*shader_program, vertex_shader);
-    glAttachShader(*shader_program, fragment_shader);
-    glLinkProgram(*shader_program);
-    error_handler(*shader_program, PROGRAM);
+    glAttachShader(shader_program, vertex_shader);
+    glAttachShader(shader_program, fragment_shader);
+    glLinkProgram(shader_program);
+    error_handler(shader_program, PROGRAM);
 
     glDeleteShader(vertex_shader);
     glDeleteShader(fragment_shader);
 
-    return true;
+    return shader_program;
 }

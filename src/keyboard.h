@@ -7,7 +7,7 @@
 
 #include <stdbool.h>
 #include <SDL.h>
-#include "../core/camera.h"
+#include "camera.h"
 
 void keyboard_handling(void);
 

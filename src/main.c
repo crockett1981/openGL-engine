@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "engine/engine.h"
+#include "engine.h"
 #include "game.h"
 
 int main(void) {

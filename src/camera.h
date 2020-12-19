@@ -24,6 +24,8 @@ struct camera_settings {
     vec3 up;
 };
 
+void get_view_matrix(mat4 destination);
+float fov_back(void);
 void init_camera(vec3 position, vec3 up, float yaw, float pitch);
 void process_keyboard(enum camera_movement direction, float delta_time);
 void process_mouse_movement(float x_offset, float y_offset, bool constrain_pitch);

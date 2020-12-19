@@ -7,20 +7,9 @@
 
 #include <GL/glew.h>
 #include <cglm/cglm.h>
-#include "engine/engine.h"
+#include "engine.h"
 
-typedef struct vector_3 {
-    float x;
-    float y;
-    float z;
-} vector_3;
 
-typedef struct mesh_t {
-    GLuint shader;
-    GLuint texture;
-
-    vector_3 position;
-} mesh_t;
 
 void game_init(void);
 void game_process_input(float delta_time);

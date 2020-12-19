@@ -11,6 +11,12 @@
 
 struct camera_settings cameraSettings = { 0 };
 
+void get_view_matrix(mat4 destination) {
+    vec3 temp;
+    glm_vec3_add(cameraSettings.position, cameraSettings.front, temp);
+    glm_lookat(cameraSettings.position, temp, cameraSettings.up, destination);
+}
+
 float fov_back(void) {
     return cameraSettings.zoom;
 }

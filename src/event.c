@@ -2,7 +2,7 @@
 // Created by holmes on 20/10/2020.
 //
 
-#include "close_window.h"
+#include "event.h"
 
 SDL_Event event = { 0 };
 
