@@ -17,6 +17,8 @@
 
 #include "camera.h"
 
+#include "util.h"
+
 /* meshes */
 #include "model/model.h"
 

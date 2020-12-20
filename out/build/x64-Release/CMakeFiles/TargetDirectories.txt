@@ -1,0 +1,16 @@
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/CMakeFiles/package.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/CMakeFiles/Engine.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/CMakeFiles/package_source.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/CMakeFiles/install/local.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/CMakeFiles/install.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/CMakeFiles/edit_cache.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/CMakeFiles/rebuild_cache.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/CMakeFiles/list_install_components.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/src/external/cglm/CMakeFiles/cglm.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/src/external/cglm/CMakeFiles/package.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/src/external/cglm/CMakeFiles/package_source.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/src/external/cglm/CMakeFiles/install/local.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/src/external/cglm/CMakeFiles/install.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/src/external/cglm/CMakeFiles/edit_cache.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/src/external/cglm/CMakeFiles/rebuild_cache.dir
+C:/Users/Holmes/Source/Repos/Yoba-Engine/out/build/x64-Release/src/external/cglm/CMakeFiles/list_install_components.dir

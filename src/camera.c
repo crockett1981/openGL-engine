@@ -44,6 +44,9 @@ void process_keyboard(enum camera_movement direction, float delta_time) {
     vec3 velocity_vec = {velocity, velocity, velocity};
     vec3 t;
 
+    printf("\rPosition X: %d Y: %d Z: %d", (int)cameraSettings.position[0], (int)cameraSettings.position[1], (int)cameraSettings.position[2]);
+    fflush(stdout);
+
     switch (direction) {
 
         case FORWARD:
@@ -69,6 +72,10 @@ void process_keyboard(enum camera_movement direction, float delta_time) {
 }
 
 void process_mouse_movement(float x_offset, float y_offset, bool constrain_pitch) {
+
+    printf("\rYaw: %d Pitch: %d", (int)cameraSettings.yaw, (int)cameraSettings.pitch);
+    fflush(stdout);
+
     x_offset *= cameraSettings.sensitivity;
     y_offset *= cameraSettings.sensitivity;
 

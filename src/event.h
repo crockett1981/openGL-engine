@@ -7,6 +7,8 @@
 
 #include <stdbool.h>
 #include <SDL.h>
+#include "game.h"
+#include "mouse.h"
 
 bool window_close(void);
 

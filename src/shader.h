@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <SDL.h>
 #include <GL/glew.h>
+#include "util.h"
 
 enum shader_type {
     VERTEX, FRAGMENT, PROGRAM

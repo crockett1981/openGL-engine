@@ -3,3 +3,7 @@
 //
 
 #include "mouse.h"
+
+void mouse_handling(SDL_MouseMotionEvent* event) {
+	process_mouse_movement((float)event->xrel, (float)-event->yrel, true);
+}

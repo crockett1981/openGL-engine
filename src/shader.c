@@ -4,37 +4,6 @@
 
 #include "shader.h"
 
-static bool load_file(const GLchar* file_path, GLchar** shader_type) {
-
-    FILE *file = fopen(file_path, "rb");
-    if(file == NULL) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "File %s not found\n", file_path);
-        return false;
-    }
-
-    fseek(file, 0, SEEK_END);
-    long file_size = ftell(file);
-    fseek(file, 0, SEEK_SET);
-
-    *shader_type = malloc(file_size + 1);
-    if(*shader_type == NULL) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Allocation error\n");
-        return false;
-    }
-
-    fread(*shader_type, file_size, 1, file);
-    if(feof(file)) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Unexpected end of file\n");
-        return false;
-    }
-
-    fclose(file);
-
-    (*shader_type)[file_size] = 0;
-
-    return true;
-}
-
 static void error_handler(GLuint object, enum shader_type shaderType) {
     int success;
     char info_log[512];
@@ -80,18 +49,13 @@ GLuint load_shader(const GLchar *vertex_path, const GLchar *fragment_path) {
     GLuint vertex_shader;
     GLuint fragment_shader;
 
-    GLchar* vertex_shader_source = NULL;
-    GLchar* fragment_shader_source = NULL;
+    GLchar* vertex_shader_source = (GLchar*)load_file(vertex_path);
+    if (vertex_shader_source == NULL)
+        exit(0);
 
-    if(!load_file(vertex_path, &vertex_shader_source)) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load file\n");
-        return false;
-    }
-
-    if(!load_file(fragment_path, &fragment_shader_source)) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load file\n");
-        return false;
-    }
+    GLchar* fragment_shader_source = (GLchar*)load_file(fragment_path);
+    if (fragment_shader_source == NULL)
+        exit(0);
 
     vertex_shader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex_shader, 1, (const GLchar *const *) &vertex_shader_source, NULL);

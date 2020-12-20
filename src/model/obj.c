@@ -100,5 +100,7 @@ int load_obj_file(mesh_t *mesh, const char *file_name) {
         }
     }
 
+    mesh->count = point_count;
+
     return 0;
 }

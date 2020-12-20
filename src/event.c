@@ -12,6 +12,9 @@ bool window_close(void) {
         switch(event.type) {
             case SDL_QUIT:
                 return true;
+            case SDL_MOUSEMOTION:
+                mouse_handling(&event.motion);
+                break;
         }
     }
 

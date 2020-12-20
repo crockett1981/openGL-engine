@@ -10,6 +10,7 @@
 #include <SDL.h>
 #include <cglm/cglm.h>
 #include <GL/glew.h>
+#include "../util.h"
 
 typedef struct mesh_t {
     GLuint shader;
@@ -25,8 +26,11 @@ typedef struct mesh_t {
 
     vec3 position;
 
+    float cube_vertices[180];
+
 } mesh_t;
 
 int load_obj_file(mesh_t *mesh, const char *file_name);
+int load_cube(mesh_t* mesh, const char* file_name);
 
 #endif //ENGINE_MODEL_H

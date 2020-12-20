@@ -1,13 +1,22 @@
 cmake_minimum_required(VERSION 3.17)
 project(Engine C)
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(LIB REQUIRED sdl2 glew libpng16)
+if(UNIX)
+	find_package(PkgConfig REQUIRED)
+	pkg_check_modules(LIB REQUIRED sdl2 glew libpng16)
+endif(UNIX)
+
+if(WIN32)
+	find_package(SDL2 CONFIG REQUIRED)
+	find_package(GLEW REQUIRED)
+endif(WIN32)
 
 set(CMAKE_C_STANDARD 99)
 
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Wall -Wextra -lm")
+if(UNIX)
+	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
+	set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Wall -Wextra -lm")
+endif(UNIX)
 
 add_executable(Engine src/main.c
 		src/shader.c
@@ -30,8 +39,21 @@ add_executable(Engine src/main.c
 		src/game.c
 		src/game.h
 		src/draw_model.c
-		src/draw_model.h)
+		src/draw_model.h "src/external/stb_image.h" "src/util.c" "src/util.h" "src/model/cube.c")
 
-target_link_libraries(Engine ${LIB_LIBRARIES})
-target_include_directories(Engine PUBLIC ${LIB_INCLUDE_DIRS})
-target_compile_options(Engine PUBLIC ${LIB_CFLAGS_OTHER})
+if(UNIX)
+	target_link_libraries(Engine ${LIB_LIBRARIES})
+	target_include_directories(Engine PUBLIC ${LIB_INCLUDE_DIRS})
+	target_compile_options(Engine PUBLIC ${LIB_CFLAGS_OTHER})
+endif(UNIX)
+
+if(WIN32)
+
+    add_subdirectory(src/external/cglm)
+
+    target_link_libraries(Engine PRIVATE SDL2::SDL2 SDL2::SDL2main)
+
+    target_link_libraries(Engine PRIVATE GLEW::GLEW)
+
+    target_link_libraries(Engine PRIVATE cglm)
+endif(WIN32)

@@ -42,7 +42,10 @@ int engine_init(const char* window_name, unsigned short screen_width, unsigned s
     printf("\nOpenGL version: %s\n", glGetString(GL_VERSION));
     printf("GLSL version: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
     printf("Vendor: %s\n", glGetString(GL_VENDOR));
-    printf("Rendering device: %s\n", glGetString(GL_RENDERER));
+    printf("Rendering device: %s\n\n", glGetString(GL_RENDERER));
+
+    SDL_SetRelativeMouseMode(SDL_TRUE);
+    SDL_ShowCursor(0);
 
     glViewport(0, 0, screen_width, screen_height);
     glEnable(GL_DEPTH_TEST);
