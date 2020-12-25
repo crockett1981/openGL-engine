@@ -18,8 +18,6 @@ GLuint load_texture(const char* file_name, bool alpha) {
         image_format = GL_RGBA;
     }
 
-    char* file = load_file(file_name);
-
     stbi_set_flip_vertically_on_load(true);
 
     unsigned char* data = stbi_load(file_name, &width, &height, &nr_channels, 0);

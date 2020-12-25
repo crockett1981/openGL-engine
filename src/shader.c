@@ -77,5 +77,11 @@ GLuint load_shader(const GLchar *vertex_path, const GLchar *fragment_path) {
     glDeleteShader(vertex_shader);
     glDeleteShader(fragment_shader);
 
+    free(vertex_shader_source);
+    vertex_shader_source = NULL;
+
+    free(fragment_shader_source);
+    fragment_shader_source = NULL;
+
     return shader_program;
 }

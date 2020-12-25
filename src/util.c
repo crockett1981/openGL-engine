@@ -9,7 +9,7 @@ char* concat(const char* string1, const char* string2) {
 	if (string == NULL)
 		return NULL;
 
-	memcpy(string, string1, length1);
+	strcpy(string, string1);
 	memcpy(string + length1, string2, length2 + 1);
 
 	return string;
@@ -27,8 +27,13 @@ char* load_file(const char* file_name) {
 	file = fopen(file_name, "rb");
 	if (file == NULL) {
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "File", error, window);
+		free(error);
+		error = NULL;
 		return NULL;
 	}
+
+    free(error);
+    error = NULL;
 
 	if (fseek(file, 0, SEEK_END) != 0) {
 		printf("Unexpected end of file\n");

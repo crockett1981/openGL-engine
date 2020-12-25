@@ -18,13 +18,13 @@ int main(void) {
         /* Delta time */
         LAST = NOW;
         NOW = SDL_GetPerformanceCounter();
-        delta_time = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
+        delta_time = ((double)(NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
 
         /* Input handle */
-        game_process_input(delta_time);
+        game_process_input((float)delta_time);
 
         /* Update game state */
-        game_update(delta_time);
+        game_update((float)delta_time);
 
         /* Render */
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -34,7 +34,7 @@ int main(void) {
 
         update_screen();
     }
-
+    destroy_game();
     destroy_engine();
 
     return 0;

@@ -3,7 +3,7 @@ project(Engine C)
 
 if(UNIX)
 	find_package(PkgConfig REQUIRED)
-	pkg_check_modules(LIB REQUIRED sdl2 glew libpng16)
+	pkg_check_modules(LIB REQUIRED sdl2 glew)
 endif(UNIX)
 
 if(WIN32)
@@ -39,10 +39,13 @@ add_executable(Engine src/main.c
 		src/game.c
 		src/game.h
 		src/draw_model.c
-		src/draw_model.h "src/external/stb_image.h" "src/util.c" "src/util.h" "src/model/cube.c")
+		src/draw_model.h "src/external/stb_image.h" "src/util.c" "src/util.h")
 
 if(UNIX)
-	target_link_libraries(Engine ${LIB_LIBRARIES})
+
+	add_subdirectory(src/external/cglm)
+
+	target_link_libraries(Engine ${LIB_LIBRARIES} cglm)
 	target_include_directories(Engine PUBLIC ${LIB_INCLUDE_DIRS})
 	target_compile_options(Engine PUBLIC ${LIB_CFLAGS_OTHER})
 endif(UNIX)

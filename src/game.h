@@ -15,6 +15,6 @@ void game_init(void);
 void game_process_input(float delta_time);
 void game_update(float delta_time);
 void game_render(void);
-
+void destroy_game(void);
 
 #endif //ENGINE_GAME_H

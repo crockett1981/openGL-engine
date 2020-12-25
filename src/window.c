@@ -49,6 +49,8 @@ int engine_init(const char* window_name, unsigned short screen_width, unsigned s
 
     glViewport(0, 0, screen_width, screen_height);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     return 0;
 }
