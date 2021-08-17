@@ -9,8 +9,6 @@
 #include <cglm/cglm.h>
 #include "engine.h"
 
-
-
 void game_init(void);
 void game_process_input(float delta_time);
 void game_update(float delta_time);

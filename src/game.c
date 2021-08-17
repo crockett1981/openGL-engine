@@ -7,7 +7,6 @@
 mesh_t cube = { 0 };
 
 void game_init(void) {
-
     /* Init models */
     cube.shader = load_shader("../res/shaders/vertex_shader.txt", "../res/shaders/fragment_shader.txt");
     cube.texture = load_texture("../res/textures/default.png", true);

@@ -4,7 +4,6 @@ SDL_Window* window = NULL;
 SDL_GLContext glContext = NULL;
 
 int engine_init(const char* window_name, unsigned short screen_width, unsigned short screen_height) {
-
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         SDL_Log("Failed to initialize SDL: %s\n", SDL_GetError());
         return -1;

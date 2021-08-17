@@ -5,7 +5,6 @@
 #include "draw_model.h"
 
 void prepare_model(mesh_t *mesh) {
-
     glGenBuffers(1, &mesh->vertices_vbo);
     glGenBuffers(1, &mesh->texture_vbo);
     glGenBuffers(1, &mesh->normals_vbo);
@@ -36,7 +35,6 @@ void prepare_model(mesh_t *mesh) {
 }
 
 void render_model(mesh_t *mesh) {
-        
     mat4 model = GLM_MAT4_IDENTITY_INIT;
     mat4 view = GLM_MAT4_IDENTITY_INIT;
     mat4 projection = GLM_MAT4_IDENTITY_INIT;

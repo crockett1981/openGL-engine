@@ -7,7 +7,6 @@
 #include "external/stb_image.h"
 
 GLuint load_texture(const char* file_name, bool alpha) {
-
     GLuint texture;
 
     int width, height, nr_channels;
@@ -16,6 +15,9 @@ GLuint load_texture(const char* file_name, bool alpha) {
     if(alpha) {
         internal_format = GL_RGBA;
         image_format = GL_RGBA;
+    } else {
+        internal_format = GL_RGB;
+        image_format = GL_RGB;
     }
 
     stbi_set_flip_vertically_on_load(true);

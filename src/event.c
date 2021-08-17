@@ -7,7 +7,6 @@
 SDL_Event event = { 0 };
 
 bool window_close(void) {
-
     while(SDL_PollEvent(&event) != 0) {
         switch(event.type) {
             case SDL_QUIT:

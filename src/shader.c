@@ -43,7 +43,6 @@ static void error_handler(GLuint object, enum shader_type shaderType) {
 }
 
 GLuint load_shader(const GLchar *vertex_path, const GLchar *fragment_path) {
-
     GLuint shader_program;
 
     GLuint vertex_shader;
